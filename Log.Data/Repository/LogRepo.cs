@@ -1,11 +1,12 @@
+using EFCoreHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.Lib;
 
 namespace Log.Data;
 
-public class LogRepo : EFGenericRepository<LogModel, LogContext>
+public class LogRepo 
+    : EFGenericRepository<LogModel, LogContext>
     , ILogRepo
 {
     public LogRepo(LogContext context) : base(context)

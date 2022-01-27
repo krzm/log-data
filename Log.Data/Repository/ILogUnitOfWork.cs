@@ -1,8 +1,9 @@
-﻿using Core;
+﻿using EFCoreHelper;
 
 namespace Log.Data;
 
-public interface ILogUnitOfWork : IUnitOfWork
+public interface ILogUnitOfWork 
+	: IUnitOfWork
 {
 	IGenericRepository<Category> Category { get; }
 	IGenericRepository<Place> Place { get; }

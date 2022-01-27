@@ -1,10 +1,11 @@
 #nullable enable
-using Core;
-using Core.Lib;
+
+using ModelHelper;
 
 namespace Log.Data;
 
-public class TaskUpdate : ModelAUpdate
+public class TaskUpdate 
+    : ModelAUpdate
     , IUpdatable<Task>
 {
     public int? CategoryId { get; set; }

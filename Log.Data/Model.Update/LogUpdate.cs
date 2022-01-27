@@ -1,10 +1,11 @@
 ﻿#nullable enable
-using Core;
+using ModelHelper;
 using System;
 
 namespace Log.Data;
 
-public class LogUpdate : IUpdatable<LogModel>
+public class LogUpdate 
+    : IUpdatable<LogModel>
 {
     public int? TaskId { get; set; }
 

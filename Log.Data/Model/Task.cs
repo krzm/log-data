@@ -1,10 +1,11 @@
-﻿using Core.Model;
+﻿using ModelHelper;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Log.Data;
 
-public class Task : IModelA
+public class Task 
+	: IModelA
 {
 	public int Id { get; set; }
 

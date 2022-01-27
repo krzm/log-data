@@ -1,4 +1,4 @@
-﻿using Core.Model;
+﻿using ModelHelper;
 using System.ComponentModel.DataAnnotations;
 
 namespace Log.Data;

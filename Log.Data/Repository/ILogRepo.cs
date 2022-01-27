@@ -1,10 +1,11 @@
+using EFCoreHelper;
 using System;
 using System.Collections.Generic;
-using Core;
 
 namespace Log.Data;
 
-public interface ILogRepo :  IGenericRepository<LogModel>
+public interface ILogRepo 
+    : IGenericRepository<LogModel>
 {
 	IEnumerable<LogModel> GetFromTodayOrDateOrBefore(DateTime? dateParam);
 
