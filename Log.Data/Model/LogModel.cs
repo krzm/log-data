@@ -11,9 +11,8 @@ public class LogModel
 	[ForeignKey("Task")]
 	public int TaskId { get; set; }
 
-	[Required]
 	[Column(TypeName = "datetime2")]
-	public DateTime Start { get; set; }
+	public DateTime? Start { get; set; }
 
 	[Column(TypeName = "datetime2")]
 	public DateTime? End { get; set; }

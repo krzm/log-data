@@ -22,7 +22,7 @@ public class LogRepo
     public IEnumerable<LogModel> GetByDate(DateTime dateTime)
     {
         return Get(
-            filter: (l) => l.Start.Date.Equals(dateTime)
+            filter: (l) => l.Start.HasValue ? l.Start.Value.Date.Equals(dateTime) : true
             , orderBy: (l) => l.OrderBy((ls) => ls.Start).ThenBy((le) => le.End)
             , includeProperties: "Task,Place");
     }
