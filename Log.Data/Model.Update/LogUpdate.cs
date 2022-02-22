@@ -21,8 +21,14 @@ public class LogUpdate
 
     public void Update(LogModel model)
     {
+        UpdateValue(model);
+        Reset(model);
+    }
+
+    private void UpdateValue(LogModel model)
+    {
         if (TaskId.HasValue
-            && TaskId.Value != model.TaskId)
+                    && TaskId.Value != model.TaskId)
             model.TaskId = TaskId.Value;
         if (Start.HasValue
             && Start.Value != model.Start)
@@ -39,5 +45,17 @@ public class LogUpdate
         if (TimeTicks.HasValue
           && TimeTicks.Value != model.TimeTicks)
             model.TimeTicks = TimeTicks.Value;
+    }
+
+    private void Reset(LogModel model)
+    {
+        if (Start.HasValue == false)
+        {
+            model.Start = null;
+        }
+        if (End.HasValue == false)
+        {
+            model.End = null;
+        }
     }
 }
