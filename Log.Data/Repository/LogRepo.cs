@@ -2,6 +2,7 @@ using EFCoreHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Log.Data;
 
@@ -13,18 +14,11 @@ public class LogRepo
     {
     }
 
-    public IEnumerable<LogModel> GetFromTodayOrDateOrBefore(DateTime? dateParam)
-    {
-        var date = dateParam.HasValue ? 
-            dateParam.Value.Date : DateTime.Now.Date;
-        return GetByDate(date);
-    }
-
-    public IEnumerable<LogModel> GetByDate(DateTime dateTime)
+    public IEnumerable<LogModel> GetLog(
+        Expression<Func<LogModel, bool>>? filter)
     {
         return Get(
-            filter: (l) => l.Start.HasValue ? 
-                l.Start.Value.Date.Equals(dateTime) : true
+            filter
             , orderBy: (l) => l.OrderBy((ls) => ls.Start)
                 .ThenBy((le) => le.End)
             , includeProperties: "Task,Place,Task.Category");
