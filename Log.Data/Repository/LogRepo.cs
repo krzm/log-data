@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 
 namespace Log.Data;
 
+#nullable enable
 public class LogRepo 
     : EFGenericRepository<LogModel, LogContext>
     , ILogRepo

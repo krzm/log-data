@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 
 namespace Log.Data;
 
+#nullable enable
 public interface ILogRepo 
     : IGenericRepository<LogModel>
 {
