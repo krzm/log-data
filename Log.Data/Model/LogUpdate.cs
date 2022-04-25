@@ -16,8 +16,6 @@ public class LogUpdate
 
     public int? PlaceId { get; set; }
 
-    public long? TimeTicks { get; set; }
-
     public override void Update(LogModel model)
     {
         base.Update(model);
@@ -36,8 +34,14 @@ public class LogUpdate
         if (PlaceId.HasValue
             && PlaceId.Value != model.PlaceId)
                 model.PlaceId = PlaceId.Value;
-        if (TimeTicks.HasValue
-            && TimeTicks.Value != model.TimeTicks)
-                model.TimeTicks = TimeTicks.Value;
+        ComputeTimeTicks(model);
+    }
+
+    private void ComputeTimeTicks(LogModel model)
+    {
+        if (model.Start.HasValue && model.End.HasValue)
+		{
+			model.TimeTicks = (model.End - model.Start).Value.Ticks;
+		}
     }
 }
