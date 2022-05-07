@@ -9,8 +9,8 @@ public class Category
 	public int Id { get; set; }
 
 	[Required, MaxLength(25)]
-	public string Name { get; set; }
+	public string? Name { get; set; }
 
 	[Required, MaxLength(70)]
-	public string Description { get; set; }
+	public string? Description { get; set; }
 }

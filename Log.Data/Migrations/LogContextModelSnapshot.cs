@@ -42,7 +42,7 @@ namespace Log.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("Log.Data.LogModel", b =>
@@ -78,7 +78,7 @@ namespace Log.Data.Migrations
 
                     b.HasIndex("TaskId");
 
-                    b.ToTable("Log");
+                    b.ToTable("Log", (string)null);
                 });
 
             modelBuilder.Entity("Log.Data.Place", b =>
@@ -101,7 +101,7 @@ namespace Log.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Place");
+                    b.ToTable("Place", (string)null);
                 });
 
             modelBuilder.Entity("Log.Data.Task", b =>
@@ -129,7 +129,7 @@ namespace Log.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Task");
+                    b.ToTable("Task", (string)null);
                 });
 
             modelBuilder.Entity("Log.Data.LogModel", b =>

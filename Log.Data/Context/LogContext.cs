@@ -5,13 +5,13 @@ namespace Log.Data;
 
 public class LogContext : DbContext
 {
-	public DbSet<Category> Category { get; set; }
+	public DbSet<Category>? Category { get; set; }
 
-	public DbSet<Place> Place { get; set; }
+	public DbSet<Place>? Place { get; set; }
 
-	public DbSet<Task> Task { get; set; }
+	public DbSet<Task>? Task { get; set; }
 
-	public DbSet<LogModel> Log { get; set; }
+	public DbSet<LogModel>? Log { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{

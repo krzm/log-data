@@ -1,33 +1,34 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Log.Data;
 
 public class LogModel
 {
-	public int Id { get; set; }
+    private const string Datetime2Name = "datetime2";
 
-	[ForeignKey("Task")]
+    public int Id { get; set; }
+
+	[ForeignKey(nameof(Task))]
 	public int TaskId { get; set; }
 
-	[Column(TypeName = "datetime2")]
+	[Column(TypeName = Datetime2Name)]
 	public DateTime? Start { get; set; }
 
-	[Column(TypeName = "datetime2")]
+	[Column(TypeName = Datetime2Name)]
 	public DateTime? End { get; set; }
 
 	[MaxLength(70)]
-	public string Description { get; set; }
+	public string? Description { get; set; }
 
-	[ForeignKey("Place")]
+	[ForeignKey(nameof(Place))]
 	public int PlaceId { get; set; }
 
 	public long? TimeTicks { get; set; }
 
-	public Task Task { get; set; }
+	public Task? Task { get; set; }
 
-	public Place Place { get; set; }
+	public Place? Place { get; set; }
 
 	[NotMapped]
 	public TimeSpan Time
