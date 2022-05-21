@@ -1,6 +1,4 @@
 ﻿#nullable enable
-using System;
-
 namespace Log.Data;
 
 public class LogUpdate 

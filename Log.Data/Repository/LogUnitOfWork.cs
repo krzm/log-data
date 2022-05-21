@@ -1,5 +1,4 @@
 ﻿using EFCoreHelper;
-using System;
 
 namespace Log.Data;
 

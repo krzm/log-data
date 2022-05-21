@@ -1,4 +1,3 @@
-#nullable enable
 using ModelHelper;
 
 namespace Log.Data;
