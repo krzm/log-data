@@ -1,30 +1,32 @@
-﻿using EFCoreHelper;
+﻿using EFCore.Helper;
 
 namespace Log.Data;
 
-public class LogUnitOfWork : ILogUnitOfWork
+public class LogUnitOfWork
+    : UnitOfWork
+        , ILogUnitOfWork
 {
     private readonly LogContext context;
-    private readonly IGenericRepository<Category> category;
-    private readonly IGenericRepository<Place> place;
-    private readonly IGenericRepository<Task> task;
+    private readonly IRepository<Category> category;
+    private readonly IRepository<Place> place;
+    private readonly IRepository<Task> task;
     private readonly ILogRepo log;
-    private bool disposed = false;
 
-    public IGenericRepository<Category> Category => category;
+    public IRepository<Category> Category => category;
 
-    public IGenericRepository<Place> Place => place;
+    public IRepository<Place> Place => place;
 
-    public IGenericRepository<Task> Task => task;
+    public IRepository<Task> Task => task;
 
     public ILogRepo Log => log;
 
     public LogUnitOfWork(
         LogContext context
-        , IGenericRepository<Category> category
-        , IGenericRepository<Place> place
-        , IGenericRepository<Task> task
+        , IRepository<Category> category
+        , IRepository<Place> place
+        , IRepository<Task> task
         , ILogRepo log)
+            : base(context)
     {
         ArgumentNullException.ThrowIfNull(context);
         ArgumentNullException.ThrowIfNull(category);
@@ -38,25 +40,4 @@ public class LogUnitOfWork : ILogUnitOfWork
         this.task = task;
         this.log = log;
     }
-
-    public void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
-    }
-
-    protected virtual void Dispose(bool disposing)
-    {
-        if (!disposed)
-        {
-            if (disposing)
-            {
-                context.Dispose();
-            }
-        }
-        disposed = true;
-    }
-
-    public void Save() =>
-        context.SaveChanges();
 }

@@ -1,11 +1,11 @@
-using EFCoreHelper;
+using EFCore.Helper;
 using System.Linq.Expressions;
 
 namespace Log.Data;
 
 #nullable enable
 public class LogRepo 
-    : EFGenericRepository<LogModel, LogContext>
+    : EFRepository<LogModel, LogContext>
     , ILogRepo
 {
     public LogRepo(LogContext context) : base(context)

@@ -1,12 +1,12 @@
-﻿using EFCoreHelper;
+﻿using EFCore.Helper;
 
 namespace Log.Data;
 
 public interface ILogUnitOfWork 
 	: IUnitOfWork
 {
-	IGenericRepository<Category> Category { get; }
-	IGenericRepository<Place> Place { get; }
-	IGenericRepository<Task> Task { get; }
+	IRepository<Category> Category { get; }
+	IRepository<Place> Place { get; }
+	IRepository<Task> Task { get; }
 	ILogRepo Log { get; }
 }
