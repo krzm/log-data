@@ -6,7 +6,6 @@ public class LogUnitOfWork
     : UnitOfWork
         , ILogUnitOfWork
 {
-    private readonly LogContext context;
     private readonly IRepository<Category> category;
     private readonly IRepository<Place> place;
     private readonly IRepository<Task> task;
@@ -28,16 +27,13 @@ public class LogUnitOfWork
         , ILogRepo log)
             : base(context)
     {
-        ArgumentNullException.ThrowIfNull(context);
-        ArgumentNullException.ThrowIfNull(category);
-        ArgumentNullException.ThrowIfNull(place);
-        ArgumentNullException.ThrowIfNull(task);
-        ArgumentNullException.ThrowIfNull(log);
-
-        this.context = context;
         this.category = category;
+        ArgumentNullException.ThrowIfNull(this.category);
         this.place = place;
+        ArgumentNullException.ThrowIfNull(this.place);
         this.task = task;
+        ArgumentNullException.ThrowIfNull(this.task);
         this.log = log;
+        ArgumentNullException.ThrowIfNull(this.log);
     }
 }
