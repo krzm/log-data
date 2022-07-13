@@ -5,14 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Log.Data;
 
 public class Task 
-	: IModelA
+	: Model
+    , IModelA
 {
 	public int Id { get; set; }
 
-	[Required, MaxLength(25)]
+	[Required, MaxLength(NameMax)]
 	public string? Name { get; set; }
 
-	[Required, MaxLength(70)]
+	[Required, MaxLength(DescriptionMax)]
 	public string? Description { get; set; }
 
 	[ForeignKey(nameof(Category))]

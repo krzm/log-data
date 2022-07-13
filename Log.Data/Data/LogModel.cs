@@ -4,9 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Log.Data;
 
 public class LogModel
+    : ModelHelper.Model
 {
-    private const string Datetime2Name = "datetime2";
-
     public int Id { get; set; }
 
 	[ForeignKey(nameof(Task))]
@@ -18,7 +17,7 @@ public class LogModel
 	[Column(TypeName = Datetime2Name)]
 	public DateTime? End { get; set; }
 
-	[MaxLength(70)]
+	[MaxLength(DescriptionMax)]
 	public string? Description { get; set; }
 
 	[ForeignKey(nameof(Place))]
