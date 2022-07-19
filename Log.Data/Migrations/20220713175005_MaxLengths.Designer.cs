@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Log.Data.Migrations
 {
-    [DbContext(typeof(LogContext))]
+    [DbContext(typeof(LogDbContext))]
     [Migration("20220713175005_MaxLengths")]
     partial class MaxLengths
     {

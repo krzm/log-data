@@ -5,10 +5,10 @@ namespace Log.Data;
 
 #nullable enable
 public class LogRepo 
-    : EFRepository<LogModel, LogContext>
+    : EFRepository<LogModel, LogDbContext>
     , ILogRepo
 {
-    public LogRepo(LogContext context) : base(context)
+    public LogRepo(LogDbContext context) : base(context)
     {
     }
 

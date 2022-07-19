@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Log.Data.Migrations
 {
-    [DbContext(typeof(LogContext))]
+    [DbContext(typeof(LogDbContext))]
     [Migration("20211031213118_RemoveStatus")]
     partial class RemoveStatus
     {

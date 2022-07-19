@@ -20,7 +20,7 @@ public class LogUnitOfWork
     public ILogRepo Log => log;
 
     public LogUnitOfWork(
-        LogContext context
+        LogDbContext context
         , IRepository<Category> category
         , IRepository<Place> place
         , IRepository<Task> task

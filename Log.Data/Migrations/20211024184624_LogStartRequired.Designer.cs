@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Log.Data.Migrations
 {
-    [DbContext(typeof(LogContext))]
+    [DbContext(typeof(LogDbContext))]
     [Migration("20211024184624_LogStartRequired")]
     partial class LogStartRequired
     {
