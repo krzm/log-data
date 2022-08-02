@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace Log.Data;
+﻿namespace Log.Data;
 
 public class LogUpdate 
     : LogReset
@@ -32,14 +31,6 @@ public class LogUpdate
         if (PlaceId.HasValue
             && PlaceId.Value != model.PlaceId)
                 model.PlaceId = PlaceId.Value;
-        ComputeTimeTicks(model);
-    }
-
-    private void ComputeTimeTicks(LogModel model)
-    {
-        if (model.Start.HasValue && model.End.HasValue)
-		{
-			model.TimeTicks = (model.End - model.Start).Value.Ticks;
-		}
+        model.SetTimeTicks();
     }
 }

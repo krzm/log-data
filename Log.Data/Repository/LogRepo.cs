@@ -3,7 +3,6 @@ using System.Linq.Expressions;
 
 namespace Log.Data;
 
-#nullable enable
 public class LogRepo 
     : EFRepository<LogModel, LogDbContext>
     , ILogRepo
