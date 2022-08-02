@@ -35,4 +35,10 @@ public class LogModel
 		get { return TimeSpan.FromTicks(TimeTicks ?? default); }
 		set { TimeTicks = value.Ticks; }
 	}
+
+    public void SetTimeTicks()
+    {
+        if (Start.HasValue == false ||  End.HasValue == false) return;
+		TimeTicks = (End - Start).Value.Ticks;
+    }
 }
